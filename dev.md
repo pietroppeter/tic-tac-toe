@@ -1,7 +1,21 @@
 - [x] types and example game
-- [ ] interface for two human players
+- [ ] player mechanics
+  - [x] base player object
+  - [ ] sequential player
+  - [ ] human player
+- [ ] game logic
+  - [ ] winCheck
+- [ ] cli
+  - [ ] test option (fixed example games)
+- [ ] ai players
+  - [ ] random
+  - [ ] human-like reasoning (rule based)
+  - [ ] MENACE https://en.wikipedia.org/wiki/Matchbox_Educable_Noughts_and_Crosses_Engine
+- [ ] refactor
+  - [ ] split into multiple files?
 
 nice to haves:
-- [x] better ascii representation
+- [x] better ascii representation of grid
 - [ ] colored Xs and Os
 - [ ] highlight lastmove
+- [ ] clean nim cfg for nim r with clean output

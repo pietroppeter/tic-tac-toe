@@ -1,3 +1,5 @@
+import std / options
+
 type
   Position* = enum
     NW, N, NE
@@ -21,6 +23,14 @@ func `$`*(g: Grid): string =
   $g[SW] & vert & $g[S] & vert & $g[SE]
 
 func newGame*: Grid = result
+
+# player 
+type
+  Player* = ref object of RootObj
+
+method play*(p: Player, g: Grid): Option[Move] {. base .} = 
+  raise newException(CatchableError, "Method without implementation override")
+
 
 when isMainModule:
   var g = newGame()
