@@ -11,6 +11,7 @@
   - [ ] random
   - [ ] human-like reasoning (rule based)
   - [ ] MENACE https://en.wikipedia.org/wiki/Matchbox_Educable_Noughts_and_Crosses_Engine
+- [ ] storage/db (required for MENACE?)
 - [ ] refactor
   - [ ] split into multiple files?
 
