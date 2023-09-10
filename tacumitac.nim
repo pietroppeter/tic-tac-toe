@@ -46,8 +46,56 @@ method play*(p: SequentialPlayer, g: Grid): Move =
 
 type
   Outcome* = enum
+    ongoing,
     draw, trisX, trisO, # trisX means X wins
     resignX, resignO # resignX means O wins
+
+func isTris*(game : Grid, line: array[3, Position]): Cell =
+  ## Empty means no, X or O means it is a tris
+  let
+    A = game[line[0]]
+    B = game[line[1]]
+    C = game[line[2]]
+  if A != Empty and A == B and B == C:
+    A
+  else:
+    Empty
+
+const trisLines = [
+  # horizontal
+  [NW, N, NE],
+  [W, C, E],
+  [SW, S, SE],
+  # vertical
+  [NW, W, SW],
+  [N, C, S],
+  [NE, E, SE],
+  # diagonal
+  [NW, C, SE],
+  [NE, C, SW],
+]
+
+func isPlayable*(game: Grid): bool =
+  for pos in Position:
+    if game[pos] == Empty:
+      return true
+  false
+
+func status*(game: Grid): Outcome =
+  # check for tris
+  for line in trisLines:
+    case game.isTris(line)
+    of Empty:
+      continue
+    of X:
+      return trisX
+    of O:
+      return trisO
+
+  if game.isPlayable:
+    ongoing
+  else:
+    draw
 
 template playGeneric(player: Player, mark: Cell, resign: Outcome, move: var Move) =
   let name = player.name
