@@ -1,10 +1,17 @@
 - [x] types and example game
 - [ ] player mechanics
   - [x] base player object
-  - [ ] sequential player
+  - [x] sequential player
   - [ ] human player
 - [ ] game logic
-  - [ ] winCheck
+  - [x] Outcome
+  - [x] playGame and playGeneric
+  - [x] resign logic
+  - [ ] winCheck and deal with non resign outcomes
+- [ ] utils
+  - [ ] sequential players from numbered diagram!
+- [ ] tests
+  - [ ] add test (they should run in debug mode?)
 - [ ] cli
   - [ ] test option (fixed example games)
 - [ ] ai players
@@ -14,6 +21,7 @@
 - [ ] storage/db (required for MENACE?)
 - [ ] refactor
   - [ ] split into multiple files?
+- [ ] extract a (customizable) log functionality (support terminal and web)
 - [ ] web interface (js with nimib?)
 
 nice to haves:
