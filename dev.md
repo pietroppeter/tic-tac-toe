@@ -1,0 +1,2 @@
+- [ ] types and example game
+- [ ] interface for two human players
