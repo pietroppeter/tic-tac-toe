@@ -120,19 +120,20 @@ proc playGame*(playerX: Player, playerO: Player): Outcome =
   var
     playX = true  # X goes first by default
     move: Move
-  while true:
+  while result == ongoing:
     if playX:
       playGeneric(playerX, X, resignX, move)
       playX = false
     else:
       playGeneric(playerO, O, resignO, move)
       playX = true
+    result = game.status
 
 when isMainModule:
   let
     playerX = SequentialPlayer(
       name: "X",
-      moves: @[C,   E,  S,  NW,]
+      moves: @[C,   E,  S,  NW,   SW]
     )
     playerO = SequentialPlayer(
       name: "O",

@@ -9,7 +9,7 @@
   - [x] resign logic
   - [x] isPlayable
   - [x] status
-  - [ ] winCheck and deal with non resign outcomes
+  - [x] winCheck and deal with non resign outcomes
 - [ ] utils
   - [ ] sequential players from numbered diagram!
 - [ ] tests
