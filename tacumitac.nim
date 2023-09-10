@@ -18,7 +18,7 @@ func `$`*(g: Grid): string =
   horz & '\n' &
   $g[W] & vert & $g[C] & vert & $g[E] & '\n' &
   horz & '\n' &
-  $g[SW] & vert & $g[S] & vert & $g[SE] & '\n'
+  $g[SW] & vert & $g[S] & vert & $g[SE]
 
 func newGame*: Grid = result
 
