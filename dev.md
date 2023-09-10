@@ -14,6 +14,7 @@
 - [ ] storage/db (required for MENACE?)
 - [ ] refactor
   - [ ] split into multiple files?
+- [ ] web interface (js with nimib?)
 
 nice to haves:
 - [x] better ascii representation of grid
