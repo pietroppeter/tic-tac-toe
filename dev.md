@@ -20,6 +20,8 @@
   - [ ] MENACE https://en.wikipedia.org/wiki/Matchbox_Educable_Noughts_and_Crosses_Engine
 - [ ] storage/db (required for MENACE?)
 - [ ] refactor
+  - [ ] add ongoing value for Outcome?
+  - [ ] go lower case for enums
   - [ ] split into multiple files?
 - [ ] extract a (customizable) log functionality (support terminal and web)
 - [ ] web interface (js with nimib?)

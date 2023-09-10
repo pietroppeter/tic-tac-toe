@@ -46,8 +46,8 @@ method play*(p: SequentialPlayer, g: Grid): Move =
 
 type
   Outcome* = enum
-    Draw, trisX, trisO, # trisA means A wins
-    resignX, resignO # resignA means B wins
+    draw, trisX, trisO, # trisX means X wins
+    resignX, resignO # resignX means O wins
 
 template playGeneric(player: Player, mark: Cell, resign: Outcome, move: var Move) =
   let name = player.name
