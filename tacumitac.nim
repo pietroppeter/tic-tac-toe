@@ -129,6 +129,32 @@ proc playGame*(playerX: Player, playerO: Player): Outcome =
       playX = true
     result = game.status
 
+type
+  Digit* = range[1 .. 9]
+
+func findNextDigit*(text: string, i: var int): Option[Digit] =
+  while i < text.len and text[i] not_in "123456789":
+    inc i
+  if i < text.len:
+    some (ord(text[i]) - ord(0) + 1).Digit
+  else:
+    none(Digit)
+
+func genGame*(diagram: string): (SequentialPlayer, SequentialPlayer) =
+  var moves: array[Position, Digit]
+  var i = 0
+  # gather the complete sequence of moves
+  for pos in Position:
+    let maybeDigit = findNextDigit(diagram, i)
+    if maybeDigit.isNone:
+      break
+    else:
+      moves[pos] = maybeDigit.get()
+  # create two sequential players
+  result[0].name = "X"
+  result[1].name = "O"
+
+
 when isMainModule:
   let
     playerX = SequentialPlayer(
