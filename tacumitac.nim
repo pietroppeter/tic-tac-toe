@@ -8,12 +8,17 @@ type
   Grid* = array[Position, Cell]
   Move* = tuple[pos: Position, val: Cell]
 
+# https://en.wikipedia.org/wiki/Box-drawing_character
+const 
+  vert = "│"
+  horz = "─┼─┼─"
+
 func `$`*(g: Grid): string =
-  $g[NW] & '|' & $g[N] & '|' & $g[NE] & '\n' &
-  "-----\n" &
-  $g[W] & '|' & $g[C] & '|' & $g[E] & '\n' &
-  "-----\n" &
-  $g[SW] & '|' & $g[S] & '|' & $g[SE] & '\n'
+  $g[NW] & vert & $g[N] & vert & $g[NE] & '\n' &
+  horz & '\n' &
+  $g[W] & vert & $g[C] & vert & $g[E] & '\n' &
+  horz & '\n' &
+  $g[SW] & vert & $g[S] & vert & $g[SE] & '\n'
 
 func newGame*: Grid = result
 

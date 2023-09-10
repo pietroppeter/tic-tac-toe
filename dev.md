@@ -2,5 +2,6 @@
 - [ ] interface for two human players
 
 nice to haves:
-- [ ] better ascii representation
+- [x] better ascii representation
+- [ ] colored Xs and Os
 - [ ] highlight lastmove
