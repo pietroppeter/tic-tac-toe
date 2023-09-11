@@ -40,10 +40,11 @@ restart:
 - [x] grid
 - [x] players
 - [x] game
+  - [ ] add a moves field to record all moves? (allows undo and saving)
 - [ ] diagrams
 - [ ] human
 - [ ] tac: the cli
 - [ ] ai
-- [ ] optimal
-- [ ] menace
-- [ ] effects (bold, colors, blinking)
+  - generic ai is a sequence of players
+- [ ] MENACE
+- [ ] terminal effects (bold, colors, blinking)
