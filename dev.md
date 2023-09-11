@@ -35,3 +35,13 @@ nice to haves:
 - [ ] colored Xs and Os
 - [ ] highlight lastmove
 - [ ] clean nim cfg for nim r with clean output
+
+restart:
+- [x] grid
+- [ ] game
+- [ ] players
+- [ ] diagrams
+- [ ] human
+- [ ] ai
+- [ ] tac: the cli
+- [ ] effects: bold, colors, blinking
