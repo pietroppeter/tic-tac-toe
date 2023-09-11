@@ -8,14 +8,14 @@ func newHumanPlayer*(mark: Mark): HumanPlayer =
   assert mark in [X, O]
   HumanPlayer(mark: mark)
 
-proc inputOptPos*(options: seq[Position]): Option[Position] =
+proc inputOptPos*(options: seq[Position], mark: Mark): Option[Position] =
   let validInputs = options.mapIt($it)
   var line: string
   var invalidInput = false
   while true:
     if invalidInput:
       echo "Please type `r` (resign) or one of the following: " & validInputs.join(",")
-    let ok = readLineFromStdin(fmt"Your move: ", line)
+    let ok = readLineFromStdin(fmt"Your move ({mark}): ", line)
     # ctrl-C or ctrl-D will cause the program to terminate
     if not ok: quit()
     if line == "r" or line in validInputs:
@@ -29,7 +29,7 @@ proc inputOptPos*(options: seq[Position]): Option[Position] =
   
 method play*(p: HumanPlayer, g: Grid): OptMove = 
   let availablePositions = g.availablePositions
-  let optPos = inputOptPos(availablePositions)
+  let optPos = inputOptPos(availablePositions, p.mark)
   if optPos.isNone:
     none(Move)
   else:
