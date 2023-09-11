@@ -42,4 +42,3 @@ when isMainModule:
     else:
       optMove = playerO.play g
       playX = true
-
