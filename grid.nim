@@ -7,6 +7,7 @@ type
   Mark* = enum
     empty = " ", X, O  # Capitialized enums are non idiomatic
   Grid* = array[Position, Mark]
+  Move* = tuple[mark: Mark, pos: Position]
 
 # https://en.wikipedia.org/wiki/Box-drawing_character
 const 
@@ -31,13 +32,15 @@ func `$`*(g: Grid): string =
 
 func newGrid*: Grid = result
 
-func isAvailable*(g: Grid, pos: Position): bool =
-  g[pos] == empty
+func isAvailable*(g: Grid, move: Move): bool =
+  g[move.pos] == empty
+
+proc update*(g: var Grid, move: Move) =
+  g[move.pos] = move.mark
 
 when isMainModule:
   var g = newGrid()
   echo g
-  type Move = tuple[mark: Mark, pos: Position]
   for move in [
       (X,q).Move,
       (O,s),
@@ -50,6 +53,6 @@ when isMainModule:
       (X,z),
       ]:
     echo "move: ", move
-    assert g.isAvailable move.pos
-    g[move.pos] = move.mark
+    assert g.isAvailable move
+    g.update move
     echo g

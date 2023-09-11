@@ -38,10 +38,12 @@ nice to haves:
 
 restart:
 - [x] grid
+- [x] players
 - [ ] game
-- [ ] players
 - [ ] diagrams
 - [ ] human
-- [ ] ai
 - [ ] tac: the cli
-- [ ] effects: bold, colors, blinking
+- [ ] ai
+- [ ] optimal
+- [ ] menace
+- [ ] effects (bold, colors, blinking)
