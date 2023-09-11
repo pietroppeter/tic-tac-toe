@@ -40,11 +40,18 @@ restart:
 - [x] grid
 - [x] players
 - [x] game
-  - [ ] add a moves field to record all moves? (allows undo and saving)
 - [x] diagrams
 - [x] human
-- [ ] tac: the cli
+- [x] tac: the cli. two humans play against each other
+  - [ ] improve messages
+  - [ ] allow replay
+  - [ ] keep scores
+- [ ] clean up and comment
+
+roadmap:
 - [ ] ai
   - generic ai is a sequence of players
 - [ ] MENACE
-- [ ] terminal effects (bold, colors, blinking)
+- [ ] implement tournaments
+- [ ] add a moves field to Game to record all moves? (allows undo and saving)
+- [ ] terminal effects? (bold, colors, blinking)
