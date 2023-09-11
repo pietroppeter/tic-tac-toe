@@ -4,7 +4,7 @@ export options
 
 type
   Player* = ref object of RootObj
-    mark: Mark
+    mark*: Mark
   SequentialPlayer* = ref object of Player
     moves: seq[Position]
   OptMove* = Option[Move]

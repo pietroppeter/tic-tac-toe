@@ -39,7 +39,7 @@ nice to haves:
 restart:
 - [x] grid
 - [x] players
-- [ ] game
+- [x] game
 - [ ] diagrams
 - [ ] human
 - [ ] tac: the cli
