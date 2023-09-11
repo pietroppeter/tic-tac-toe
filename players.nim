@@ -8,11 +8,9 @@ type
     moves: seq[Position]
   OptMove* = Option[Move]
 
-func newSeqPlayerX*(moves: seq[Position]): SequentialPlayer =
-  SequentialPlayer(mark: X, moves: moves)
-
-func newSeqPlayerO*(moves: seq[Position]): SequentialPlayer =
-  SequentialPlayer(mark: O, moves: moves)
+func newSeqPlayer*(mark: Mark, moves: seq[Position]): SequentialPlayer =
+  doAssert mark in [X, O]
+  SequentialPlayer(mark: mark, moves: moves)
 
 method play*(p: Player, g: Grid): OptMove {. base .} = 
   raise newException(CatchableError, "Method without implementation override")
@@ -25,8 +23,8 @@ method play*(p: SequentialPlayer, g: Grid): OptMove =
 
 when isMainModule:
   let
-    playerX = newSeqPlayerX(@[q,s,a,z])
-    playerO = newSeqPlayerO(@[ w,c,d])
+    playerX = newSeqPlayer(X, @[q,s,a,z])
+    playerO = newSeqPlayer(O, @[ w,c,d])
   var g = newGrid()
   echo g
   var optMove = playerX.play g
