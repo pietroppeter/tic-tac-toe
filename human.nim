@@ -43,3 +43,6 @@ when isMainModule:
   var game = newGame(playerX, playerO)
   playFull game
   echo game.status
+
+  # test with `cat human_seq_game.txt | nim r human`
+  assert game.status == winO
