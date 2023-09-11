@@ -6,7 +6,7 @@ type
   Player* = ref object of RootObj
     mark*: Mark
   SequentialPlayer* = ref object of Player
-    moves: seq[Position]
+    moves*: seq[Position]
   OptMove* = Option[Move]
 
 func newSeqPlayer*(mark: Mark, moves: seq[Position]): SequentialPlayer =

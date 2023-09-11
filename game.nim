@@ -1,12 +1,13 @@
 import grid, players
+export grid, players
 
 type
   Game* = object
-    grid: Grid
-    playerX, playerO: Player
-    playX: bool
-    lastMove: OptMove
-    status: Status
+    grid*: Grid
+    playerX*, playerO*: Player
+    playX*: bool
+    lastMove*: OptMove
+    status*: Status
   Status* = enum
     playing,
     draw, winX, winO,
