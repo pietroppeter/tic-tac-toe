@@ -35,6 +35,11 @@ func newGrid*: Grid = result
 func isAvailable*(g: Grid, move: Move): bool =
   g[move.pos] == empty
 
+func availablePositions*(g: Grid): seq[Position] =
+  for pos in Position:
+    if g[pos] == empty:
+      result.add pos
+
 proc update*(g: var Grid, move: Move) =
   g[move.pos] = move.mark
 

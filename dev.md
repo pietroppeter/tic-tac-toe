@@ -41,8 +41,8 @@ restart:
 - [x] players
 - [x] game
   - [ ] add a moves field to record all moves? (allows undo and saving)
-- [ ] diagrams
-- [ ] human
+- [x] diagrams
+- [x] human
 - [ ] tac: the cli
 - [ ] ai
   - generic ai is a sequence of players
