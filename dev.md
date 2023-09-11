@@ -50,8 +50,9 @@ restart:
 
 roadmap:
 - [ ] ai
-  - generic ai is a sequence of players
+  - generic rule based ai is a sequence of players!
 - [ ] MENACE
 - [ ] implement tournaments
 - [ ] add a moves field to Game to record all moves? (allows undo and saving)
 - [ ] terminal effects? (bold, colors, blinking)
+- [ ] web interface (with nimib and karax/happyx?)
