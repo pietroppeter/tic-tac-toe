@@ -1,5 +1,6 @@
 import std / options
 import grid
+export options
 
 type
   Player* = ref object of RootObj
