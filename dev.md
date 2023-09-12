@@ -1,58 +1,37 @@
-- [x] types and example game
-- [ ] player mechanics
-  - [x] base player object
-  - [x] sequential player
-  - [ ] human player
-- [ ] game logic
-  - [x] Outcome
-  - [x] playGame and playGeneric
-  - [x] resign logic
-  - [x] isPlayable
-  - [x] status
-  - [x] winCheck and deal with non resign outcomes
-- [ ] utils
-  - [ ] sequential players from numbered diagram!
-- [ ] tests
-  - [ ] add test (they should run in debug mode?)
-- [ ] cli
-  - [ ] test option (fixed example games)
-- [ ] ai players
-  - [ ] random
-  - [ ] human-like reasoning (rule based)
-  - [ ] MENACE https://en.wikipedia.org/wiki/Matchbox_Educable_Noughts_and_Crosses_Engine
-- [ ] storage/db (required for MENACE?)
-- [ ] refactor
-  - [x] add ongoing value for Outcome
-  - [ ] rename Outcome to Status?
-  - [ ] rename Position to input keys?
-  - [ ] go lower case for enums
-  - [ ] split into multiple files?
-- [ ] extract a (customizable) log functionality (support terminal and web)
-- [ ] web interface (js with nimib?)
-
-nice to haves:
-- [x] better ascii representation of grid
-- [ ] colored Xs and Os
-- [ ] highlight lastmove
-- [ ] clean nim cfg for nim r with clean output
-
-restart:
+todo:
 - [x] grid
+  - [ ] toCompactStr (for testing)
 - [x] players
 - [x] game
-- [x] diagrams
 - [x] human
+  - [ ] refactor into players?
+  - [ ] separate prompt module?
 - [x] tac: the cli. two humans play against each other
   - [ ] improve messages
   - [ ] allow replay
   - [ ] keep scores
-- [ ] clean up and comment
+- [ ] clean up, review README and comment
+  - [ ] add selected roadmap elements to README
+
+nice to haves:
+- [x] diagrams module for testing game logic
+- [x] better ascii representation of grid
+- [ ] clean nim cfg for nim r with clean output
 
 roadmap:
-- [ ] ai
+- [ ] ai players
   - generic rule based ai is a sequence of players!
-- [ ] MENACE
+- [ ] MENACE!
+  - [ ] will require some storage mechanism
 - [ ] implement tournaments
 - [ ] add a moves field to Game to record all moves? (allows undo and saving)
 - [ ] terminal effects? (bold, colors, blinking)
+  - [ ] colored Xs and Os
+  - [ ] highlight lastmove (bold?)
+  - [ ] blinking winning row?
+- [ ] separate log/prompt module for messages
 - [ ] web interface (with nimib and karax/happyx?)
+- [ ] documents (with nimib)
+  - [ ] example play
+  - [ ] reports on tournaments between ai players
+  - [ ] how menace learns
