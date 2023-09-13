@@ -5,7 +5,8 @@ todo:
 - [x] games
 - [x] human
   - [ ] refactor into players?
-  - [ ] separate prompt module?
+- [ ] prompts
+  - both for human player and for cli
 - [x] tac: the cli. two humans play against each other
   - [ ] improve messages
   - [ ] allow replay
@@ -35,3 +36,40 @@ roadmap:
   - [ ] example play
   - [ ] reports on tournaments between ai players
   - [ ] how menace learns
+
+example of target tac cli Messages:
+
+```
+---instructions.start
+Welcome to TAC a game of Tic-Tac-Toe for humans!
+
+Two players take turns placing Xs and Os in a 3x3 grid.
+The first who places three-in-a-row wins!
+
+To input each move you use the following letters
+
+q│w│e
+─┼─┼─
+a│s│d
+─┼─┼─
+z│x│c
+
+You can resign (and lose the game) using `r`.
+---instructions.end
+---prompt.ready
+Ready to start? (Y/n)
+> 
+---if no
+That's fine, take your time and come back when you are ready!
+---exit
+---if yes:
+---first move
+
+ │ │ 
+─┼─┼─
+ │ │ 
+─┼─┼─
+ │ │ 
+X to move:
+>
+```
