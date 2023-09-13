@@ -40,12 +40,13 @@ roadmap:
 example of target tac cli Messages:
 
 ```
----instructions.start
+---welcome
 Welcome to TAC a game of Tic-Tac-Toe for humans!
 
 Two players take turns placing Xs and Os in a 3x3 grid.
 The first who places three-in-a-row wins!
 
+---input instructions
 To input each move you use the following letters
 
 q│w│e
@@ -54,22 +55,51 @@ a│s│d
 ─┼─┼─
 z│x│c
 
-You can resign (and lose the game) using `r`.
----instructions.end
+You can also resign (and lose the game) using `r`.
+
 ---prompt.ready
 Ready to start? (Y/n)
 > 
----if no
+---prompt.ready.no
 That's fine, take your time and come back when you are ready!
----exit
----if yes:
----first move
+-> quit
+---prompt.ready.invalidInput
+please answer yes (Y/y) or no (N/n)
+---prompt.ready.yes
+---game.play
 
  │ │ 
 ─┼─┼─
  │ │ 
 ─┼─┼─
  │ │ 
+---human.prompt.move
 X to move:
 >
+---human.prompt.move.q
+
+X│ │ 
+─┼─┼─
+ │ │ 
+─┼─┼─
+ │ │ 
+---human.prompt.move
+O to move:
+>
+---human.prompt.move.invalid
+`..` is not a valid input, sorry.
+---repeat instructions basing them on current game
+The lower case letters here are the current valid inputs
+
+X│w│e
+─┼─┼─
+a│s│d
+─┼─┼─
+z│x│c  (r to resign)
+---human.prompt
+O to move:
+>
+---
+
+
 ```
