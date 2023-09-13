@@ -63,7 +63,7 @@ proc playFull*(game: var Game, verbose = true) =
 
 when isMainModule:
   import diagrams
-
+  # a simple game where X wins
   let
     playerX = newSeqPlayer(X, @[q,s,a,z])
     playerO = newSeqPlayer(O, @[ w,c,d])
@@ -71,6 +71,7 @@ when isMainModule:
   playFull game
   echo game.status
   assert game.status == winX
+  # same game as before but using Diagram
   let game0 = game
   game = newGameFrom """
   12.
@@ -80,6 +81,7 @@ when isMainModule:
   assert game.status == game0.status
   assert game.grid == game0.grid
 
+  # a game that ends in a draw
   game = newGameFrom """
   672
   314
@@ -87,3 +89,12 @@ when isMainModule:
   playFull game
   echo game.status
   assert game.status == draw
+
+  # O resigns after double threat by X
+  game = newGameFrom """
+  .23
+  .15
+  4..""".Diagram
+  playFull game
+  echo game.status
+  assert game.status == resignO

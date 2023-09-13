@@ -1,5 +1,5 @@
-import std / [options, algorithm]
-import game
+import std / algorithm
+import games
 
 type
   Diagram* = distinct string

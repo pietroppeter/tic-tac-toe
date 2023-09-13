@@ -2,7 +2,7 @@ todo:
 - [x] grid
   - [ ] toCompactStr (for testing)
 - [x] players
-- [x] game
+- [x] games
 - [x] human
   - [ ] refactor into players?
   - [ ] separate prompt module?
