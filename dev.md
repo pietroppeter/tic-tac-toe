@@ -4,11 +4,14 @@ todo:
 - [x] players
 - [x] games
 - [x] human
-  - [ ] refactor into players?
+  - [ ] refactor into players
 - [ ] prompts
   - both for human player and for cli
 - [x] tac: the cli. two humans play against each other
   - [ ] improve messages
+    - [x] welcome message
+    - [x] input instructinos
+    - [ ] ready to start
   - [ ] allow replay
   - [ ] keep scores
 - [ ] clean up, review README and comment
@@ -40,23 +43,6 @@ roadmap:
 example of target tac cli Messages:
 
 ```
----welcome
-Welcome to TAC a game of Tic-Tac-Toe for humans!
-
-Two players take turns placing Xs and Os in a 3x3 grid.
-The first who places three-in-a-row wins!
-
----input instructions
-To input each move you use the following letters
-
-q│w│e
-─┼─┼─
-a│s│d
-─┼─┼─
-z│x│c
-
-You can also resign (and lose the game) using `r`.
-
 ---prompt.ready
 Ready to start? (Y/n)
 > 
