@@ -17,11 +17,17 @@ z│x│c
 You can also resign (and lose the game) using `r`.
 """
 
+let goodbyeMessage = "Bye, have a great day!"
+
 when isMainModule:
-  import games, human
+  import games, prompts, human
 
   echo welcomeMessage
   echo inputInstructions
+
+  if not "Ready to start?".yes:
+    echo goodbyeMessage
+    quit(0)
 
   let
     playerX = newHumanPlayer(X)
