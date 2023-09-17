@@ -29,7 +29,7 @@ method play*(p: SequentialPlayer, g: Grid): OptMove =
 
 proc inputOptPos*(options: seq[Position], mark: Mark): Option[Position] =
   let
-    validInputs = options.mapIt($it)
+    validInputs = options.mapIt($it) & @["r"]
     onInvalidInput = "Please type `r` (resign) or one of the following: " & validInputs.join(",")
   let answer = genericPrompt(
     question = fmt"Your move ({mark}):",
