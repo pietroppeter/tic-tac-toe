@@ -1,4 +1,4 @@
-import std / [options, sequtils, strformat, strutils]
+import std / [options, sequtils, strformat, strutils, random]
 import grid, prompts
 export options
 
@@ -8,6 +8,7 @@ type
   SequentialPlayer* = ref object of Player
     moves*: seq[Position]
   HumanPlayer* = ref object of Player
+  RandomPlayer* = ref object of Player
   OptMove* = Option[Move]
 
 func newSeqPlayer*(mark: Mark, moves: seq[Position]): SequentialPlayer =
@@ -18,6 +19,10 @@ func newHumanPlayer*(mark: Mark): HumanPlayer =
   doAssert mark in [X, O]
   HumanPlayer(mark: mark)
 
+func newRandomPlayer*(mark: Mark): RandomPlayer =
+  doAssert mark in [X, O]
+  RandomPlayer(mark: mark)
+
 method play*(p: Player, g: Grid): OptMove {. base .} = 
   raise newException(CatchableError, "Method without implementation override")
 
@@ -26,6 +31,12 @@ method play*(p: SequentialPlayer, g: Grid): OptMove =
     if g.isAvailable (p.mark, move):
       return some((p.mark, move))
   none(Move)
+
+method play*(p: RandomPlayer, g: Grid): OptMove =
+  if g.availablePositions.len == 0:
+    none(Move)
+  else:
+    some((p.mark, g.availablePositions.sample))
 
 proc inputOptPos*(options: seq[Position], mark: Mark): Option[Position] =
   let

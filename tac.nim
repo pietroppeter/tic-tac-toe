@@ -47,7 +47,7 @@ when isMainModule:
   while wannaPlay:
     let
       playerX = newHumanPlayer(X)
-      playerO = newHumanPlayer(O)
+      playerO = newRandomPlayer(O)
     var game = newGame(playerX, playerO)
     playFull game
 

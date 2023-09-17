@@ -14,7 +14,7 @@ modules:
 
 roadmap:
 - [ ] ai players
-  - [ ] a simple `RandomPlayer`
+  - [x] a simple `RandomPlayer`
   - [ ] a generic rule based AI player `RulesPlayer`
   - [ ] MENACE
 - [ ] tac: prompt to choose players (human, ai)
