@@ -69,7 +69,7 @@ when isMainModule:
       else:
         optMove = playerO.play g
         playX = true
-  # test with `cat human_seq_game.txt | nim r players`
+  # test with `cat test_game_players_human_input.txt | nim r players`
   # or winO with s, e, z
   import games
 
