@@ -50,16 +50,12 @@ proc play*(game: var Game) =
     game.playX = true
 
 proc playFull*(game: var Game, verbose = true) =
-  if verbose:
-    echo game.grid
-    echo ""
-
   while game.status == playing:
-    game.play
     if verbose:
-      echo "move: ", game.lastMove
+      echo ""
       echo game.grid
       echo ""
+    game.play
 
 when isMainModule:
   import diagrams

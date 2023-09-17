@@ -1,5 +1,5 @@
-import std / options
-import grid
+import std / [options, sequtils, strformat, strutils]
+import grid, prompts
 export options
 
 type
@@ -7,11 +7,16 @@ type
     mark*: Mark
   SequentialPlayer* = ref object of Player
     moves*: seq[Position]
+  HumanPlayer* = ref object of Player
   OptMove* = Option[Move]
 
 func newSeqPlayer*(mark: Mark, moves: seq[Position]): SequentialPlayer =
   doAssert mark in [X, O]
   SequentialPlayer(mark: mark, moves: moves)
+
+func newHumanPlayer*(mark: Mark): HumanPlayer =
+  doAssert mark in [X, O]
+  HumanPlayer(mark: mark)
 
 method play*(p: Player, g: Grid): OptMove {. base .} = 
   raise newException(CatchableError, "Method without implementation override")
@@ -22,22 +27,58 @@ method play*(p: SequentialPlayer, g: Grid): OptMove =
       return some((p.mark, move))
   none(Move)
 
-when isMainModule:
+proc inputOptPos*(options: seq[Position], mark: Mark): Option[Position] =
   let
-    playerX = newSeqPlayer(X, @[q,s,a,z])
-    playerO = newSeqPlayer(O, @[ w,c,d])
-  var g = newGrid()
-  echo g
-  var optMove = playerX.play g
-  var playX = false
-  while optMove.isSome:
-    let move = optMove.get
-    echo "move: ", move
-    g.update move
+    validInputs = options.mapIt($it)
+    onInvalidInput = "Please type `r` (resign) or one of the following: " & validInputs.join(",")
+  let answer = genericPrompt(
+    question = fmt"Your move ({mark}):",
+    validInputs,
+    onInvalidInput,
+  )
+  if answer == "r":
+    none(Position)
+  else:
+    some(parseEnum[Position](answer))
+  
+method play*(p: HumanPlayer, g: Grid): OptMove = 
+  let availablePositions = g.availablePositions
+  let optPos = inputOptPos(availablePositions, p.mark)
+  if optPos.isNone:
+    none(Move)
+  else:
+    some (mark: p.mark, pos: optPos.get)
+
+when isMainModule:
+  block:
+    let
+      playerX = newSeqPlayer(X, @[q,s,a,z])
+      playerO = newSeqPlayer(O, @[ w,c,d])
+    var g = newGrid()
     echo g
-    if playX:
-      optMove = playerX.play g
-      playX = false
-    else:
-      optMove = playerO.play g
-      playX = true
+    var optMove = playerX.play g
+    var playX = false
+    while optMove.isSome:
+      let move = optMove.get
+      echo "move: ", move
+      g.update move
+      echo g
+      if playX:
+        optMove = playerX.play g
+        playX = false
+      else:
+        optMove = playerO.play g
+        playX = true
+  # test with `cat human_seq_game.txt | nim r players`
+  # or winO with s, e, z
+  import games
+
+  block:
+    let
+      playerX = newSeqPlayer(X, @[q,w,e,a,s,d,z,x,c])
+      playerO = newHumanPlayer(O)
+    var game = newGame(playerX, playerO)
+    playFull game
+    echo game.status
+
+    assert game.status == winO

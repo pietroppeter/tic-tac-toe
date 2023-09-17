@@ -20,7 +20,7 @@ You can also resign (and lose the game) using `r`.
 let goodbyeMessage = "Bye, have a great day!"
 
 when isMainModule:
-  import games, prompts, human
+  import games, prompts
 
   echo welcomeMessage
   echo inputInstructions

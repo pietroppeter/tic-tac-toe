@@ -4,16 +4,16 @@ todo:
 - [x] players
 - [x] games
 - [x] human
-  - [ ] refactor into players
-- [ ] prompts
+  - [x] refactor into players
+- [x] prompts
   - both for human player and for cli
 - [x] tac: the cli. two humans play against each other
   - [ ] improve messages
     - [x] welcome message
     - [x] input instructinos
-    - [ ] ready to start
+    - [x] ready to start
+    - [ ] end game message
   - [ ] allow replay
-  - [ ] keep scores
 - [ ] clean up, review README and comment
   - [ ] add selected roadmap elements to README
 
