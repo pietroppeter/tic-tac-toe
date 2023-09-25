@@ -16,6 +16,7 @@ todo:
   - [x] allow replay
 - [x] clean up, review README and comment
   - [x] add selected roadmap elements to README
+- [x] bug not showing last step
 
 nice to haves:
 - [x] diagrams module for testing game logic

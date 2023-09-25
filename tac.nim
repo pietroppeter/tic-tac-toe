@@ -52,6 +52,8 @@ when isMainModule:
     playFull game
 
     echo ""
+    echo game.grid
+    echo ""
     echo game.status.toMessage
 
     echo ""

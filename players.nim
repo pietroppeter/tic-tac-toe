@@ -3,13 +3,15 @@ import grid, prompts
 export options
 
 type
+  OptMove* = Option[Move]
   Player* = ref object of RootObj
     mark*: Mark
   SequentialPlayer* = ref object of Player
     moves*: seq[Position]
   HumanPlayer* = ref object of Player
   RandomPlayer* = ref object of Player
-  OptMove* = Option[Move]
+  ManyPlayers* = ref object of Player
+    players*: seq[Player]
 
 func newSeqPlayer*(mark: Mark, moves: seq[Position]): SequentialPlayer =
   doAssert mark in [X, O]
@@ -37,6 +39,12 @@ method play*(p: RandomPlayer, g: Grid): OptMove =
     none(Move)
   else:
     some((p.mark, g.availablePositions.sample))
+
+method play*(p: ManyPlayers, g: Grid): OptMove =
+  var i = 0
+  var optMove: OptMove
+  while i < p.players.len and optMove.isNone:
+    optMove = p.players[i].play(g)
 
 proc inputOptPos*(options: seq[Position], mark: Mark): Option[Position] =
   let
